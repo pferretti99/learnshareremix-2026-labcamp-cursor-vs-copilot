@@ -1,0 +1,11 @@
+---
+description: Starter hints for the Cursor vs Copilot labcamp (safe defaults).
+alwaysApply: true
+---
+
+# Labcamp starter rules
+
+- Prefer a **small, demonstrable** vertical slice over a large unfinished design.
+- Before multi-file edits, briefly **list intended files** and **acceptance criteria** (e.g. “runs with `npm start`”, “CLI prints help”).
+- **No secrets** in code or config committed to git; use `.env` (gitignored) and `.env.example` with placeholders only.
+- If stuck, use **Plan mode** or **Ask mode** first, then Agent—especially for unfamiliar stacks.

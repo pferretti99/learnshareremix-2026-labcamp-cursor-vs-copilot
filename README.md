@@ -190,15 +190,7 @@ Read **`skills/README.md`** in this repo for a short overview.
 
 ### Theme
 
-**“Build an AI-powered micro-tool.”**
-
-Examples (non-binding):
-
-- CLI that summarizes technical docs  
-- Tiny web UI that wraps a model API  
-- Script that generates tests from a module  
-- Internal “ask my repo” helper  
-- Automation for a repetitive dev task  
+...
 
 ### Mandatory requirements
 
@@ -242,7 +234,7 @@ About **3 minutes per team**, structured as:
 ## How teams are evaluated
 
 Evaluation is **intentionally subjective**—this is a learning lab, not a certified exam.  
-**Judges:** facilitators **plus a guest from the Social team** (or equivalent), aligned on the criteria below.
+**Judges:** facilitators **plus a guest from the Social team**, aligned on the criteria below.
 
 ### Award-style categories (examples)
 
@@ -250,9 +242,9 @@ These mirror the spirit of the session and may be adjusted live:
 
 | Category | Prompt | Who decides |
 |----------|--------|-------------|
-| **Best build** | Most useful, complete, or impressive *working* outcome | Often **audience vote** (hands/Kahoot—TBD live) |
+| **Best build** | Most useful, complete, or impressive *working* outcome | **audience vote** |
 | **Most creative use of the tool** | Clever combinations, strong prompting, smart guardrails, unusual but valid workflow | **Judges** |
-| **Best fail** | Funniest or most instructive autonomous mistake—what it taught you about oversight | Often **audience vote** |
+| **Best fail** | Funniest or most instructive autonomous mistake—what it taught you about oversight | **audience vote** |
 | **Feature breadth** *(optional)* | Touched many meaningful capabilities *with intent* (not chaos) | **Judges** |
 | **Innovation** *(optional)* | Novel pairing of features, MCP, instructions, tests, or human/AI split | **Judges** |
 

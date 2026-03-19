@@ -1,0 +1,50 @@
+# Riduce ciò che Cursor indicizza per contesto (come .gitignore).
+# Non committare segreti: .env resta fuori dal repo (.gitignore) e dall’indice AI.
+
+# Segreti e env locali
+.env
+.env.*
+!.env.example
+
+# Dipendenze e ambienti (molto grandi, poco utili al contesto)
+node_modules/
+.venv/
+venv/
+env/
+
+# Build e artefatti
+dist/
+build/
+out/
+.next/
+.nuxt/
+.turbo/
+.parcel-cache/
+coverage/
+htmlcov/
+storybook-static/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+*.egg-info/
+
+# Git (storico non necessario per il codice)
+.git/
+
+# Log e temporanei
+*.log
+logs/
+tmp/
+temp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Opzionale: skill vendor molto grandi (decommenta se l’indice è lento)
+# skills/anthropic-official/

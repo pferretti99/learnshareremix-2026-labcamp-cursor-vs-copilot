@@ -1,0 +1,4 @@
+# Copy values to a local `.env` (gitignored) if your app calls external APIs.
+# Do not commit real keys.
+
+# EXAMPLE_API_KEY=

@@ -1,301 +1,191 @@
 # Cursor vs GitHub Copilot — Hands-on Labcamp (2026)
 
-Welcome! This repository is the **shared starter base** for the **Learn Share Remix** labcamp. You will work in **teams**, with **freedom** to choose languages, frameworks, and product shape—while following a few **clear rules** so the session stays fair, safe, and fun.
+Shared **starter** for the **Learn Share Remix** labcamp. Work in **teams** on a **small agile task-management web app** described in **`docs/`**—same overall shape for everyone (list, detail, create, filters/search, persistence); stack and extras are up to you within that brief.
 
 **Facilitators:** Paolo Ferretti (Cursor) · Riccardo Sartori (GitHub Copilot)
 
 ---
 
-## Table of contents
+## Contents
 
 1. [What you’ll do today](#what-youll-do-today)
-2. [Before you arrive (checklist)](#before-you-arrive-checklist)
-3. [Choose your lane: Cursor or Copilot](#choose-your-lane-cursor-or-copilot)
-4. [Setup — Cursor](#setup--cursor)
-5. [Setup — Visual Studio Code + GitHub Copilot](#setup--visual-studio-code--github-copilot)
-6. [Agents, rules, skills & MCP (quick map)](#agents-rules-skills--mcp-quick-map)
-7. [Bundled Anthropic skills (optional)](#bundled-anthropic-skills-optional)
-8. [Challenge rules](#challenge-rules)
-9. [Final presentations](#final-presentations)
-10. [How teams are evaluated](#how-teams-are-evaluated)
-11. [Safety, privacy & “would you merge this?”](#safety-privacy--would-you-merge-this)
-12. [Official documentation & further reading](#official-documentation--further-reading)
+2. [Before you arrive](#before-you-arrive)
+3. [Choose your lane](#choose-your-lane)
+4. [Quick setup](#quick-setup)
+5. [Repo context (rules, agents, MCP, skills)](#repo-context-rules-agents-mcp-skills)
+6. [Bundled Anthropic skills (optional)](#bundled-anthropic-skills-optional)
+7. [Challenge & project docs (`docs/`)](#challenge--project-docs-docs)
+8. [Final presentations](#final-presentations)
+9. [How teams are evaluated](#how-teams-are-evaluated)
+10. [Safety & privacy](#safety--privacy)
+11. [Resources hub (skills, MCP, communities, docs)](#resources-hub-skills-mcp-communities-docs)
 
 ---
 
 ## What you’ll do today
 
-At a high level:
-
 1. Short **tool deep-dives** (Cursor vs Copilot)—philosophy, strengths, guardrails.
-2. **Team challenge:** build a small **AI-powered micro-tool** (CLI, web app, API, notebook, chatbot—your call).
-3. **Demos + debrief:** a few teams present; we celebrate strong builds, creative workflows, and honest “best fails.”
+2. **Team challenge:** a small **agile task-management web app** per **[`docs/challenge-brief.md`](docs/challenge-brief.md)** (everyone builds the same *kind* of product; details and data shape in **`docs/`**).
+3. **Demos + debrief:** selected teams present; we celebrate strong builds, creative workflows, and honest “best fails.”
 
-> Exact timing and room logistics follow the live agenda.
-
----
-
-## Before you arrive (checklist)
-
-| Step | Cursor track | Copilot (VS Code) track |
-|------|----------------|-------------------------|
-| Install the product | [Download Cursor](https://cursor.com/download) | Install [VS Code](https://code.visualstudio.com/) |
-| Account | Cursor account (Free or Pro is fine for the lab) | GitHub account with **Copilot** enabled ([Copilot plans](https://docs.github.com/en/copilot/get-started/plans)) |
-| Sign-in | Sign into Cursor | Sign into VS Code with GitHub; enable Copilot |
-| Optional | Import VS Code extensions/settings into Cursor | Install any team extensions you already use (language servers, themes, etc.) |
-| This repo | `git clone` (or unzip) and **open the folder** as your workspace | Same |
-
-**Bring:** laptop charger, GitHub login, and (if required by your org) approval to use AI coding assistants on a **non-production** sandbox.
+> Timing and room logistics follow the live agenda.
 
 ---
 
-## Choose your lane: Cursor or Copilot
+## Before you arrive
 
-- We may split the room **by tool** (half Cursor, half Copilot) or **by team**—follow the facilitators’ instructions.
-- **Mixing tools inside one team** is allowed if everyone agrees—just be ready to explain what you used.
-- The goal is **learning**, not religious wars: pick the workflow you want to explore today.
+| | Cursor | VS Code + Copilot |
+|---|--------|-------------------|
+| Product | [cursor.com/download](https://cursor.com/download) | [VS Code](https://code.visualstudio.com/) |
+| Account | Cursor (Free/Pro is fine) | GitHub with **Copilot** ([plans](https://docs.github.com/en/copilot/get-started/plans)) |
+| Repo | `git clone` and **Open Folder** as workspace | Same |
+| Optional | Import VS Code settings (Command Palette → *Import* + *VS Code*) | Team extensions (LSP, themes, …) |
 
----
-
-## Setup — Cursor
-
-### 1. Install & first launch
-
-1. Download from **[cursor.com/download](https://cursor.com/download)** (macOS, Windows, Linux).
-2. Open Cursor → **Open Folder…** → select this repository.
-
-### 2. Import from VS Code (recommended if you use VS Code today)
-
-- **Command Palette:** `Ctrl+Shift+P` (Windows/Linux) / `Cmd+Shift+P` (macOS) → **“Cursor: Import VS Code Settings”**  
-  (wording may vary slightly by version; search for *Import* + *VS Code*).
-
-This brings extensions, themes, and keybindings so Cursor feels familiar.
-
-### 3. Core features to try during the lab
-
-| Capability | Typical shortcut / entry point | Why it matters in the challenge |
-|------------|--------------------------------|----------------------------------|
-| **Tab (AI completions)** | `Tab` to accept | Fast iteration; good for “glue” code |
-| **Inline edit** | `Ctrl+K` / `Cmd+K` | Precise edits with a natural-language instruction |
-| **Chat** | `Ctrl+L` / `Cmd+L` | Ask / plan / agent workflows |
-| **Agent** | Chat → *Agent* mode (see UI) | Multi-file changes, terminal steps (with approvals) |
-| **Plan mode** | Often `Shift+Tab` in the chat input (or mode picker) | Review a plan before big edits |
-| **@ context** | `@Files`, `@Folders`, `@codebase`, `@Web`, … | Steer the model with explicit context |
-
-> Shortcuts can be remapped; search Command Palette for the feature name if needed.
-
-### 4. Project brain: Rules + `AGENTS.md`
-
-This repo includes:
-
-- **`AGENTS.md`** — short instructions any agent-style tool can read (edit it for your team!).
-- **`.cursor/rules/labcamp-starter.mdc`** — gentle defaults for the lab (you may tweak or add rules).
-
-**Create more rules** when you see the model repeat the same mistake:  
-Command Palette → **“New Cursor Rule”** → prefer small, scoped rules.
-
-### 5. Ignore secrets from AI & indexing
-
-Add patterns to **`.cursorignore`** (similar to `.gitignore`) for anything sensitive or huge.  
-See: [Cursor ignore files](https://docs.cursor.com/context/ignore-files).
-
-### 6. (Optional) MCP — Model Context Protocol
-
-MCP connects the agent to external tools (GitHub, databases, docs, etc.).
-
-- Project config: **`.cursor/mcp.json`**
-- **Never commit secrets**; use environment variables and local overrides.
-
-Docs: [Cursor MCP](https://cursor.com/docs/context/mcp).
-
-### 7. (Optional) Agent Skills
-
-Skills are procedural “playbooks” (often `SKILL.md`). Cursor’s support evolves by release; if Skills are available in your build, you can place team skills under **`.cursor/skills/`**.  
-See: [Cursor Skills](https://cursor.com/docs/context/skills).
-
-### 8. Privacy
-
-If your organization requires it, review **Privacy Mode** and data-handling settings in **Cursor Settings**.  
-Docs: [Cursor Docs](https://cursor.com/docs) → security / privacy topics.
+**Bring:** charger, GitHub login, and (if your org requires it) approval to use AI coding assistants on a **non-production** sandbox.
 
 ---
 
-## Setup — Visual Studio Code + GitHub Copilot
+## Choose your lane
 
-### 1. Install VS Code & Copilot
-
-1. Install **[Visual Studio Code](https://code.visualstudio.com/)**.
-2. Open **Extensions** → install **GitHub Copilot** and **GitHub Copilot Chat** (bundled in many setups—install what the marketplace shows as official).
-3. Sign in with **GitHub** and ensure your account has Copilot access (trial or subscription per your org).
-
-Docs hub: **[GitHub Copilot documentation](https://docs.github.com/en/copilot)**.
-
-### 2. Enable inline completions & chat
-
-- Start typing—accept suggestions with **`Tab`**.
-- Open **Copilot Chat** from the sidebar / command palette.
-- Explore **Agent / Edits** style flows (names evolve—use the Copilot panel modes you see in your version).
-
-### 3. Repository instructions Copilot reads
-
-This repo includes **`.github/copilot-instructions.md`** as a starting point.  
-Copilot also supports richer setups:
-
-- **`.github/instructions/*.instructions.md`** — scoped instructions (great for monorepos).
-- **`AGENTS.md`** — simple, portable guidance at the repo root (also used by GitHub’s coding agent flows in many setups).
-
-Template references: [Custom instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
-
-### 4. (Optional) Custom agents (Markdown)
-
-GitHub supports reusable **custom agents** as Markdown under **`.github/agents/`** (organization features may vary).  
-Use them for repeatable roles: reviewer, docs maintainer, test writer, etc.
-
-### 5. (Optional) MCP in VS Code
-
-Copilot Chat in VS Code can integrate with **MCP servers** in many configurations.  
-Treat MCP like installing **plugins with power**: verify sources, approve tool calls consciously, and avoid production systems.
-
-### 6. Enterprise notes
-
-If you are on **Copilot Business / Enterprise**, your admin may control policies, allowed models, and audit settings. When in doubt, use a **sandbox repo** like this one.
+- We may split **by tool** or **by team**—follow the facilitators.
+- **Mixing tools in one team** is OK if everyone agrees; be ready to explain what you used.
+- Goal is **learning**, not tooling debates.
 
 ---
 
-## Agents, rules, skills & MCP (quick map)
+## Quick setup
 
-| Idea | Cursor (typical) | GitHub Copilot (typical) |
-|------|------------------|---------------------------|
-| **Persistent guidance** | `.cursor/rules/*.mdc`, User Rules | `.github/copilot-instructions.md`, `.github/instructions/` |
-| **Simple portable file** | `AGENTS.md` | `AGENTS.md` |
-| **Autonomous multi-step work** | Agent mode (+ terminal with approvals) | Agent / Edits in IDE; **Copilot coding agent** on GitHub for async PR workflows (plan-dependent) |
-| **External tools** | MCP in `.cursor/mcp.json` | MCP (VS Code ecosystem) |
-| **Procedural playbooks** | Skills (`SKILL.md`, product-dependent) | Instructions + custom agents; align with GitHub docs for your plan |
+### Cursor
+
+1. Install from [cursor.com/download](https://cursor.com/download) → **Open Folder** on this repo.
+2. During the lab, try **Tab**, **inline edit** (`Ctrl/Cmd+K`), **Chat** (`Ctrl/Cmd+L`), **Agent**, **@** context (`@Files`, `@codebase`, …), **Plan mode** if available. If shortcuts differ, use the Command Palette.
+3. **Privacy:** if your org requires it, check Privacy Mode and data settings in **Cursor Settings**. [Cursor docs](https://cursor.com/docs).
+
+### Visual Studio Code + GitHub Copilot
+
+1. [VS Code](https://code.visualstudio.com/) → install official **GitHub Copilot** / **Copilot Chat** → sign in with GitHub and Copilot access.
+2. During the lab: **Tab** for completions, **Copilot Chat**, **Agent / Edits** (names vary by version).
+3. [Copilot docs hub](https://docs.github.com/en/copilot).
+
+**Copilot Business / Enterprise:** admins may restrict policies and models; treat this repo as a sandbox.
+
+---
+
+## Repo context (rules, agents, MCP, skills)
+
+| Concept | Where |
+|---------|--------|
+| Portable instructions for agents | **`AGENTS.md`** (edit for your team) |
+| Cursor — always-on hints | **`.cursor/rules/labcamp-starter.mdc`** (`alwaysApply: true`) |
+| Cursor — **subagents** (delegated context) | **`.cursor/agents/*.md`** — [`labcamp-code-reviewer`](.cursor/agents/labcamp-code-reviewer.md), [`labcamp-test-writer`](.cursor/agents/labcamp-test-writer.md) ([`.cursor/agents/README.md`](.cursor/agents/README.md)). Invoke with **`/name`** (e.g. `/labcamp-code-reviewer`) or let Agent delegate; see [Cursor Subagents](https://cursor.com/docs/context/subagents). Same *roles* as Copilot `.github/agents/*.agent.md`, different format. |
+| Cursor — optional rules (static context) | Other **`.cursor/rules/*.mdc`** you add (e.g. stack-specific); distinct from subagents. |
+| Copilot — repo-wide instructions | **`.github/copilot-instructions.md`**, optional **`.github/instructions/*.instructions.md`** |
+| Copilot — custom agents (cloud / supported flows) | **`.github/agents/*.agent.md`** — [`labcamp-code-reviewer`](.github/agents/labcamp-code-reviewer.agent.md), [`labcamp-test-writer`](.github/agents/labcamp-test-writer.agent.md) ([`.github/agents/README.md`](.github/agents/README.md)) |
+| Hide sensitive or huge paths from AI | **`.cursorignore`** ([docs](https://docs.cursor.com/context/ignore-files)) |
+| MCP | Cursor: **`.cursor/mcp.json`**. VS Code + Copilot: **`.vscode/mcp.json`**. See [`docs/mcp-configuration.md`](docs/mcp-configuration.md). Never commit secrets. |
+| **Skills** (portable playbooks, often `SKILL.md`) | **Cursor:** project skills under **`.cursor/skills/<skill-name>/SKILL.md`** — [Cursor Skills](https://cursor.com/docs/context/skills). You can copy patterns from **`skills/anthropic-official/`** into that layout. **GitHub Copilot** does not use the same on-disk path as Cursor: repo guidance is usually **instructions** (above); community **skills** are often installed as **plugins** from [awesome-copilot](https://github.com/github/awesome-copilot) (`copilot plugin install …`) or by pasting skill content into `.github/instructions/`. Format reference: [agentskills.io](https://agentskills.io). |
 
 ---
 
 ## Bundled Anthropic skills (optional)
 
-Under **`skills/anthropic-official/`** you’ll find a **vendored snapshot** of Anthropic’s public skills repo ([`anthropics/skills`](https://github.com/anthropics/skills)).
-
-- **You may delete this folder** if you want a minimal workspace.
-- **You may copy ideas** into your own skill/instruction files.
-- **Licenses differ by folder** (Apache-2.0 vs source-available document skills)—see upstream `README.md` and per-skill `LICENSE.txt`.
-
-Read **`skills/README.md`** in this repo for a short overview.
+Folder **`skills/anthropic-official/`** is a vendored snapshot of [`anthropics/skills`](https://github.com/anthropics/skills). You may **delete** it for a minimal workspace or **reuse ideas** in your own files. Licenses vary by folder—see upstream and **`skills/README.md`**.
 
 ---
 
-## Challenge rules
+## Challenge & project docs (`docs/`)
 
-### Theme
+**Authoritative product + technical expectations** for the build live in **`docs/`**—use them as context for Cursor, Copilot, and your team.
 
-...
+| Doc | What it’s for |
+|-----|----------------|
+| [`docs/README.md`](docs/README.md) | Index of all project docs |
+| [`docs/challenge-brief.md`](docs/challenge-brief.md) | Goal, user stories, functional/technical expectations, acceptance checklist |
+| [`docs/data-and-types.md`](docs/data-and-types.md) | Suggested task fields, enums, seed data (~20), `localStorage` notes |
+| [`docs/working-with-ai-assistants.md`](docs/working-with-ai-assistants.md) | How to brief agents (plans, slices, acceptance criteria) |
 
-### Mandatory requirements
+**Summary:** build a **web app** for **agile-style task management**—list of work items, **detail** view, **create** with validation, **filter and/or search**, **~20 seeded tasks** in the repo, **new tasks persist after refresh** (e.g. `localStorage`). **Not** a mandated Kanban board (no required columns or drag-and-drop). Framework and visual design are **your choice** within `AGENTS.md` dependency rules.
 
-1. **It must run or be demonstrable**  
-   Partial success is OK **if** you clearly show what works and what doesn’t.
+### Lab process (same for every team)
 
-2. **Use at least two distinct features of your assistant**  
-   Examples: *Inline edit + Agent*, *Chat + custom instructions*, *Copilot Edits + terminal suggestions*, *@codebase + Plan mode*, *MCP tool + review pass*, etc.  
-   **You must name them** during the final pitch.
+1. **It must run or be demonstrable**—partial success is OK if boundaries are clear.
+2. **At least two distinct assistant features** (e.g. inline + agent, chat + custom instructions, `@codebase` + plan, MCP + review, …)—**name them** in the pitch.
+3. **Transparency:** AI-assisted work is expected; say if something critical was hand-written.
 
-3. **Transparency about authorship**  
-   The expectation is AI-assisted work. If you typed critical parts manually, say so—interesting human steering counts as a plus in discussion.
-
-### Freedom
-
-- Any **language / framework**  
-- Any **problem domain** (keep it respectful and legal)  
-- **Team size** as announced live (solo/pair/team—follow facilitators)
+Team size per facilitators.
 
 ---
 
 ## Final presentations
 
-### Timebox (target)
-
-About **3 minutes per team**, structured as:
+About **3 minutes** per team:
 
 1. **~30s** — What you built and why  
 2. **~1m** — Demo (live preferred; screenshots/video OK)  
 3. **~1m** — Which **tool features** you used; what worked / surprised / failed  
-4. **~30s** — “Could I do this without AI? How long would it take?”
+4. **~30s** — “Without AI, how long would this take?”
 
-### How many teams present?
-
-- **Many teams in the room:** we typically hear **3–4 representative teams** (selected for diversity of approach—not “only the best,” but a useful slice for discussion).  
-- **Two large teams (e.g., Cursor vs Copilot):** **both** sides present.  
-- Final selection is made **live** by the facilitators to fit the agenda.
+**How many teams:** often **3–4** diverse picks in a large room; two macro-teams (e.g. Cursor vs Copilot) → **both** present. Facilitators choose live to fit the agenda.
 
 ---
 
 ## How teams are evaluated
 
-Evaluation is **intentionally subjective**—this is a learning lab, not a certified exam.  
-**Judges:** facilitators **plus a guest from the Social team**, aligned on the criteria below.
+Learning lab—not a scored exam. **Judges:** facilitators plus a guest from the Social team, aligned on the criteria below.
 
-### Award-style categories (examples)
+**Award-style categories (examples; may shift live)**
 
-These mirror the spirit of the session and may be adjusted live:
+| Category | Who decides |
+|----------|-------------|
+| **Best build** (useful, working outcome) | Audience vote |
+| **Most creative tool use** | Judges |
+| **Best fail** (instructive or funny autonomous mistake) | Audience vote |
+| **Feature breadth** / **Innovation** *(optional)* | Judges |
 
-| Category | Prompt | Who decides |
-|----------|--------|-------------|
-| **Best build** | Most useful, complete, or impressive *working* outcome | **audience vote** |
-| **Most creative use of the tool** | Clever combinations, strong prompting, smart guardrails, unusual but valid workflow | **Judges** |
-| **Best fail** | Funniest or most instructive autonomous mistake—what it taught you about oversight | **audience vote** |
-| **Feature breadth** *(optional)* | Touched many meaningful capabilities *with intent* (not chaos) | **Judges** |
-| **Innovation** *(optional)* | Novel pairing of features, MCP, instructions, tests, or human/AI split | **Judges** |
-
-### What judges look for (rubric-style)
-
-Scores are **not computed by a formula**—judges use this as a **shared lens**:
-
-1. **Working software (40%)**  
-   Runs end-to-end or honest partial with clear boundaries.
-
-2. **Tool mastery (25%)**  
-   At least **two** distinct features used *well*; clarity beats volume.
-
-3. **Creativity & problem fit (20%)**  
-   Interesting idea, good scoping for the timebox, thoughtful UX/DX.
-
-4. **Engineering judgment (15%)**  
-   Safety basics (no leaked secrets), sanity checks, tests or rationale when relevant.
-
-**Tie-breakers (soft):** clearer demo, better explanation of failures, stronger ensemble collaboration.
-
-### Extra recognition
-
-- **Heavy feature exploration** is great **if** it’s purposeful—tell us what you tried and what you learned.  
-- **Innovation** matters: unusual but effective use of **agents, rules, skills, MCP, plans, reviews**, etc.
+**Shared lens (not a formula):** working software or honest partial (~40%) · tool mastery, ≥2 features used well (~25%) · creativity and problem fit (~20%) · engineering judgment—secrets, deps, sense (~15%). Soft tie-breakers: clearer demo, better failure story, stronger collaboration.
 
 ---
 
-## Safety, privacy & “would you merge this?”
+## Safety & privacy
 
-- **No secrets** in chat, commits, or screenshots (tokens, passwords, customer data).  
-- Use a **local `.env`** (gitignored). A commented template lives in **`docs/env-template.txt`**—copy what you need; never commit real keys.  
-- **Review AI output** like a teammate’s PR: dependencies, auth, injection, and “too clever” abstractions.  
-- If something breaks beautifully, bring it to **“Best fail”**—that’s valuable learning.
-
----
-
-## Official documentation & further reading
-
-- **Cursor:** [https://cursor.com/docs](https://cursor.com/docs) · [Quickstart](https://cursor.com/docs/get-started/quickstart)  
-- **GitHub Copilot:** [https://docs.github.com/en/copilot](https://docs.github.com/en/copilot)  
-- **Prompting guides:** [Anthropic](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) · [OpenAI](https://platform.openai.com/docs/guides/prompt-engineering)  
-- **Agent Skills spec:** [https://agentskills.io](https://agentskills.io)
+- **No secrets** in chat, commits, or screenshots. Use **`.env`** (gitignored); commented template in **`docs/env-template.txt`**.
+- **Review AI output** like a PR: dependencies, auth, injection, over-clever abstractions.
+- A memorable breakage → great **Best fail** material.
 
 ---
+
+## Resources hub (skills, MCP, communities, docs)
+
+### Agent Skills (format & examples)
+
+- [anthropics/skills](https://github.com/anthropics/skills) — public Agent Skills from Anthropic (this repo vendors a copy under `skills/anthropic-official/`).  
+- [agentskills/agentskills](https://github.com/agentskills/agentskills) — specification repo for the Agent Skills format.  
+- [agentskills.io](https://agentskills.io) — spec and overview site.
+
+### MCP marketplaces & example configs
+
+- **Cursor:** [Cursor Marketplace](https://cursor.com/marketplace) · [cursor.directory](https://cursor.directory/) (community). Example **`.cursor/mcp.json`** shape: [Cursor MCP docs](https://cursor.com/docs/context/mcp).  
+- **VS Code + Copilot:** MCP gallery in Extensions (**search `@mcp`**) · [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) · [MCP configuration reference](https://code.visualstudio.com/docs/copilot/reference/mcp-configuration). Workspace file: **`.vscode/mcp.json`**.  
+- **Side-by-side examples (lab):** [`docs/mcp-configuration.md`](docs/mcp-configuration.md) — sample JSON for Cursor vs VS Code (**different keys**: `mcpServers` vs `servers`).
+
+### Curated community repos
+
+- [PatrickJS/awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) — Cursor rules / `.cursorrules` examples (adapt to `.cursor/rules/*.mdc` as needed).  
+- [github/awesome-copilot](https://github.com/github/awesome-copilot) — Copilot agents, instructions, skills, plugins.
+
+### Official product documentation
+
+- **Cursor:** [cursor.com/docs](https://cursor.com/docs) · [Quickstart](https://cursor.com/docs/get-started/quickstart) · [Agent best practices](https://www.cursor.com/blog/agent-best-practices) · [Subagents](https://cursor.com/docs/context/subagents) · [MCP](https://cursor.com/docs/context/mcp) · [Skills](https://cursor.com/docs/context/skills)  
+- **GitHub Copilot:** [docs.github.com/copilot](https://docs.github.com/en/copilot) · [Custom agents](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent) · [Custom instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+
+### Prompting (general)
+
+- [Anthropic — prompt engineering](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) · [OpenAI — prompt engineering](https://platform.openai.com/docs/guides/prompt-engineering)
 
 ### License
 
-The **starter files** (`README.md`, `AGENTS.md`, `.cursor/rules/*`, `.github/copilot-instructions.md`) are provided for the event.  
-The **Anthropic skills bundle** retains its **upstream licenses**—see `skills/anthropic-official/README.md`.
+Starter files (`README.md`, `AGENTS.md`, `docs/*`, `.cursor/rules/*`, `.cursor/agents/*`, `.github/copilot-instructions.md`, `.github/agents/*.agent.md`) are for the event. The **Anthropic skills bundle** keeps **upstream licenses**—see `skills/anthropic-official/README.md`.
 
 ---
 
-**Good luck—build small, demo loud, and take great notes.**
+**Build small, demo clearly, take good notes.**

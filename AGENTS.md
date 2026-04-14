@@ -4,7 +4,7 @@ This file helps **Cursor Agent**, **GitHub Copilot** (async agent / coding agent
 
 ## Project (fill in)
 
-- **What we are building:** _one sentence_
+- **What we are building:** _one sentence (see [`docs/challenge-brief.md`](docs/challenge-brief.md))_
 - **Stack:** _languages / frameworks_
 - **How to run:** _commands_
 - **How to test:** _commands_

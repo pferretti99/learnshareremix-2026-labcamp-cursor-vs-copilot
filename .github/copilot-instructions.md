@@ -4,7 +4,7 @@ Copilot can use this file (and related `.github/instructions/`) as persistent gu
 
 ## Lab context
 
-Teams build a small AI-related tool with freedom on stack and shape. Prefer clarity and a runnable demo over scope.
+Teams build a small **agile task-management web app** (list, detail, create, filter/search, seed data, persistence). **Authoritative requirements:** `docs/challenge-brief.md`, `docs/data-and-types.md`. Optional agent workflow tips: `docs/working-with-ai-assistants.md`. Example Copilot custom agents (review / tests): `.github/agents/*.agent.md`. Prefer clarity and a runnable demo over extra scope.
 
 ## Conventions
 

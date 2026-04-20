@@ -17,8 +17,7 @@ Shared **starter** for the **Learn Share Remix** labcamp. Work in **teams** on a
 7. [Challenge & project docs (`docs/`)](#challenge--project-docs-docs)
 8. [Final presentations](#final-presentations)
 9. [How teams are evaluated](#how-teams-are-evaluated)
-10. [Safety & privacy](#safety--privacy)
-11. [Resources hub (skills, MCP, communities, docs)](#resources-hub-skills-mcp-communities-docs)
+10. [Resources hub (skills, MCP, communities, docs)](#resources-hub-skills-mcp-communities-docs)
 
 ---
 
@@ -58,8 +57,8 @@ Shared **starter** for the **Learn Share Remix** labcamp. Work in **teams** on a
 ### Cursor
 
 1. Install from [cursor.com/download](https://cursor.com/download) → **Open Folder** on this repo.
-2. During the lab, try **Tab**, **inline edit** (`Ctrl/Cmd+K`), **Chat** (`Ctrl/Cmd+L`), **Agent**, **@** context (`@Files`, `@codebase`, …), **Plan mode** if available. If shortcuts differ, use the Command Palette.
-3. **Privacy:** if your org requires it, check Privacy Mode and data settings in **Cursor Settings**. [Cursor docs](https://cursor.com/docs).
+2. During the lab, try **Tab**, **inline edit** (`Ctrl/Cmd+K`), **Chat** (`Ctrl/Cmd+L`), **Agent**, **@** context (`@Files`, `@codebase`, …), **Plan mode** if available.
+3. **Privacy:** Check Privacy Mode and data settings in **Cursor Settings**. [Cursor docs](https://cursor.com/docs).
 
 ### Visual Studio Code + GitHub Copilot
 
@@ -131,26 +130,9 @@ About **3 minutes** per team:
 
 ## How teams are evaluated
 
-Learning lab—not a scored exam. **Judges:** facilitators plus a guest from the Social team, aligned on the criteria below.
+**Judges:** facilitators plus the Social team, aligned on the criteria below.
 
-**Award-style categories (examples; may shift live)**
-
-| Category | Who decides |
-|----------|-------------|
-| **Best build** (useful, working outcome) | Audience vote |
-| **Most creative tool use** | Judges |
-| **Best fail** (instructive or funny autonomous mistake) | Audience vote |
-| **Feature breadth** / **Innovation** *(optional)* | Judges |
-
-**Shared lens (not a formula):** working software or honest partial (~40%) · tool mastery, ≥2 features used well (~25%) · creativity and problem fit (~20%) · engineering judgment—secrets, deps, sense (~15%). Soft tie-breakers: clearer demo, better failure story, stronger collaboration.
-
----
-
-## Safety & privacy
-
-- **No secrets** in chat, commits, or screenshots. Use **`.env`** (gitignored); commented template in **`docs/env-template.txt`**.
-- **Review AI output** like a PR: dependencies, auth, injection, over-clever abstractions.
-- A memorable breakage → great **Best fail** material.
+Working software or honest partial (~40%) · tool mastery, ≥2 features used well (~25%) · creativity and problem fit (~20%) · engineering judgment—secrets, deps, sense (~15%). Soft tie-breakers: clearer demo, better failure story, stronger collaboration.
 
 ---
 
